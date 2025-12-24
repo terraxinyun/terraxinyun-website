@@ -7,24 +7,9 @@ function Logo() {
   );
 }
 
-function TechParticles() {
-  return (
-    <div className="tech-particles">
-      <div className="particle particle-1" />
-      <div className="particle particle-2" />
-      <div className="particle particle-3" />
-      <div className="particle particle-4" />
-      <div className="particle particle-5" />
-      <div className="hex hex-1" />
-      <div className="hex hex-2" />
-    </div>
-  );
-}
-
 export default function Home() {
   return (
     <div className="app">
-      <TechParticles />
       <header className="hero">
         <div className="hero-content">
           <h1 className="hero-title">
