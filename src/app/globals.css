@@ -34,6 +34,40 @@ body {
     linear-gradient(90deg, rgba(88, 166, 255, 0.02) 1px, transparent 1px);
   background-size: 100%, 100%, 80px 80px, 80px 80px;
   background-attachment: fixed;
+  position: relative;
+}
+
+/* Soft animated glow orbs */
+.app::before, .app::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(80px);
+}
+.app::before {
+  width: 400px;
+  height: 400px;
+  background: rgba(88, 166, 255, 0.08);
+  top: -100px;
+  right: 10%;
+  animation: glow1 12s ease-in-out infinite;
+}
+.app::after {
+  width: 300px;
+  height: 300px;
+  background: rgba(31, 111, 235, 0.06);
+  bottom: 20%;
+  left: 5%;
+  animation: glow2 15s ease-in-out infinite;
+}
+@keyframes glow1 {
+  0%, 100% { transform: translate(0, 0); opacity: 0.6; }
+  50% { transform: translate(-30px, 30px); opacity: 1; }
+}
+@keyframes glow2 {
+  0%, 100% { transform: translate(0, 0); opacity: 0.5; }
+  50% { transform: translate(20px, -20px); opacity: 0.8; }
 }
 
 /* Navbar */
@@ -69,7 +103,7 @@ body {
   justify-content: center;
   padding: 8rem 6% 6rem;
 }
-.hero-content { text-align: center; max-width: 720px; }
+.hero-content { text-align: center; max-width: 720px; animation: fadeUp 0.8s ease-out; }
 .hero-title {
   font-size: clamp(3rem, 8vw, 5rem);
   font-weight: 700;
@@ -77,8 +111,12 @@ body {
   letter-spacing: -0.03em;
   line-height: 1.1;
 }
-.terra { color: var(--accent); }
+.terra { color: var(--accent); text-shadow: 0 0 40px rgba(88, 166, 255, 0.3); }
 .xinyun { color: var(--text-primary); }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 .hero-subtitle {
   font-size: clamp(1.1rem, 2.5vw, 1.35rem);
   color: var(--text-secondary);
@@ -106,7 +144,7 @@ body {
   cursor: pointer;
   transition: all 0.2s;
 }
-.btn-primary:hover { background: #6bb3ff; transform: translateY(-1px); }
+.btn-primary:hover { background: #6bb3ff; transform: translateY(-2px); box-shadow: 0 10px 30px rgba(88, 166, 255, 0.3); }
 .btn-secondary {
   background: transparent;
   color: var(--text-secondary);
@@ -148,9 +186,10 @@ body {
   transition: all 0.3s;
 }
 .service-card:hover {
-  border-color: rgba(88, 166, 255, 0.2);
-  background: rgba(88, 166, 255, 0.02);
-  transform: translateY(-2px);
+  border-color: rgba(88, 166, 255, 0.25);
+  background: rgba(88, 166, 255, 0.03);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(88, 166, 255, 0.1);
 }
 .service-icon {
   width: 44px;
